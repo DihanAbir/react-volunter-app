@@ -1,4 +1,4 @@
-import React , {createContext, useContext, useState}from 'react';
+import React , {createContext, useContext, useEffect, useState}from 'react';
 import Event from '../Event/Event';
 import fakeData from '../../fakeData';
 import { EventContext } from '../../App';
@@ -17,13 +17,23 @@ import './Home.css';
 
 const Home = () => {
     // firebase.initializeApp(firebaseConfig);
+   
 
-    const [event, setEvent] = useState(fakeData);
+
+    const [event, setEvent] = useState([]);
     const [loggedInUser, setLoggedInUser, eventdetails, setEventdetails] = useContext(EventContext)
-    console.log(eventdetails)
+    // console.log(eventdetails)
+
+
+    useEffect(() =>{
+        fetch('http://localhost:5000/loadEvents')
+        .then(res => res.json())
+        .then(data =>setEvent(data))
+    }, [])
+
 
     const handleEvent = (event) =>{
-        console.log("clicked",event)
+        // console.log("clicked",event)
         setEventdetails(event)
     }
     

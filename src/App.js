@@ -14,6 +14,7 @@ import Login from './component/Login/Login';
 import Admin from './component/Admin/Admin';
 import Event from './component/Event/Event';
 import PrivateRoute from './component/PrivateRoute/PrivateRoute';
+import TotalEvent from './component/TotalEvent/TotalEvent';
 
 
 export const EventContext = createContext();
@@ -52,7 +53,9 @@ function App() {
       <Route exact path="/admin">
         <Admin></Admin>
       </Route>
-     
+      <Route exact path="/totalEventPerUser">
+        <TotalEvent></TotalEvent>
+      </Route>
 
       </Switch>
       

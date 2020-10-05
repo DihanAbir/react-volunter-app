@@ -4,13 +4,13 @@ import './Event.css'
 
 const Event = (props) => {
     // console.log(props.handleEvent)
-    const {name, img} = props.event
+    const {title, img} = props.event
     return (
             <Link to="/detailsEvent" onClick={() =>props.handleEvent(props.event)}  className="col-3 singleEvent" >
 
                 <div className="event">
                     <img className="img-fluid" src={img} alt=""/>
-                    <p className="title">{name}</p>
+                    <p className="title">{title}</p>
                     <button >clicked here</button>
                 </div>
 
